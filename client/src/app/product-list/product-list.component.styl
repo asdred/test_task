@@ -1,0 +1,62 @@
+ul
+	li
+		cursor pointer
+		&:hover
+			background #34495e
+			h6
+				color #f39c12
+
+.put
+	background-color #fff
+	width 500px
+	box-shadow 1px 1px 5px 0px rgba(0,0,0,0.3)
+	.form-row
+		padding .5em 2em
+		text-align center
+		max-width 500px
+		ul
+			text-align left
+		&:first-child
+			padding 1em 2em .5em 2em
+		&:last-child
+			padding .5em 2em 1em 2em
+			margin 0 !important
+		h1
+			margin 0
+			font-size inherit
+			line-height inherit
+		label
+			display block
+			padding 0 0 .5em 0
+			font-size 16px
+			line-height 16px
+		textarea
+			height 5em
+			resize none
+			&:focus + .input-requirements
+				display block
+			&.ng-touched.ng-invalid
+				color: #e74c3c;
+				border-color: #e74c3c;
+				box-shadow: none;
+			&.ng-touched.ng-valid
+				color: #2ecc71;
+				border-color: #2ecc71;
+				box-shadow: none;
+		input
+			&:focus + .input-requirements
+				display block
+			&.ng-touched.ng-invalid
+				color: #e74c3c;
+				border-color: #e74c3c;
+				box-shadow: none;
+			&.ng-touched.ng-valid
+				color: #2ecc71;
+				border-color: #2ecc71;
+				box-shadow: none;
+		.input-requirements
+			width 80%
+			margin .5em auto
+			display none
+			font-size 16px
+			line-height 16px

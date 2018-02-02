@@ -1,0 +1,27 @@
+	<form class="inserting" [formGroup]="reactiveForm">
+		<div class="form-row">
+			<h1>Добавление товара</h1>
+		</div>
+		<div class="form-row">
+			<label for="name">Название</label>
+			<input type="text" id="name" class="form-control" (keyup)="onKeyUp()" formControlName="name" placeholder="Горшок керамический" />
+			<ul class="input-requirements">
+				<li>От 3 до 50 символов</li>
+			</ul>
+		</div>
+		<div class="form-row">
+			<label for="description">Описание</label>
+			<textarea class="form-control" id="description" (keyup)="onKeyUp()" formControlName="description" placeholder="Состояние отличное, ремонт не требуется"></textarea>
+		</div>
+		<div class="form-row">
+			<label for="weight">Вес</label>
+			<input type="text" id="weight" class="form-control" (keyup)="onKeyUp()" formControlName="weight" placeholder="2">
+			<ul class="input-requirements">
+				<li>Можно вводить только число</li>
+				<li>До 100 (кг)</li>
+			</ul>
+		</div>
+		<div class="form-row">
+			<button [ngClass]="buttonClasses" (click)="addProduct()">В корзину</button>
+		</div>
+	</form>

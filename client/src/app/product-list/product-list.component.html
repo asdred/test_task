@@ -1,0 +1,47 @@
+<div *ngIf="!isProductSelected; else formTemplate">
+	<h2>Мои товары</h2>
+	<ul class="list-group mb-3" >
+        <li *ngFor="let product of products" class="list-group-item d-flex justify-content-between lh-condensed" (click)="selectProduct($event, product)">
+            <div>
+                <h6 class="my-0">{{product.name}}</h6>
+                <span class="text-muted">{{product.description}}</span>
+            </div>
+            <span class="text-muted">{{product.weight}}</span>
+        </li>
+    </ul>
+</div>
+<!-- можно вынести в отдельный компонент -->
+<ng-template #formTemplate>
+    	<form class="put" [formGroup]="reactiveForm">
+			<div class="form-row">
+				<h1>Изменение товара</h1>
+			</div>
+			<div class="form-row">
+				<label for="name">Название</label>
+				<input type="text" id="name" class="form-control" (keyup)="onKeyUp()" formControlName="name" placeholder="Горшок керамический" />
+				<ul class="input-requirements">
+					<li>От 3 до 50 символов</li>
+				</ul>
+			</div>
+			<div class="form-row">
+				<label for="description">Описание</label>
+				<textarea class="form-control" id="description" (keyup)="onKeyUp()" formControlName="description" placeholder="Состояние отличное, ремонт не требуется"></textarea>
+			</div>
+			<div class="form-row">
+				<label for="weight">Вес</label>
+				<input type="text" id="weight" class="form-control" (keyup)="onKeyUp()" formControlName="weight" placeholder="2">
+				<ul class="input-requirements">
+					<li>Можно вводить только число</li>
+					<li>До 100 (кг)</li>
+				</ul>
+			</div>
+			<div class="form-row row">
+				<div class="col-md-6">
+					<button [ngClass]="buttonClasses" (click)="updateProduct()">Сохранить</button>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-block btn-lg btn-default" (click)="cancel()">Отмена</button>
+				</div>
+			</div>
+		</form>
+</ng-template>
